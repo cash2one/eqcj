@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+
+import urllib
+from django.contrib import auth
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+
+from common import utils, page
+
+
+def home(request, template_name='404.html'):
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
+def test500(request):
+    raise Exception, u'test500 for send error email'
