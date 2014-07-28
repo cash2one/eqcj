@@ -3,7 +3,11 @@
 {% block title %}{{article_type.1}}{% endblock title %}
 
 {% block container %}
-<div class="col-md-8 pt-30 pl-0">
+<ol class="breadcrumb f15" style="margin-bottom: 10px; margin-top: 10px; padding-left: 0;">
+    <li><a href="/">首页</a></li>
+    <li><a href="/{{article_type.0}}">{{article_type.1}}</a></li>
+</ol>
+<div class="col-md-8 pt-0 pl-0">
 <ul class="list-group pt-5 bgc-fff">
     
     <li class="list-group-item border-left-0 border-right-0 bdc-eee bgc-0 pl-0">

@@ -18,8 +18,8 @@ def home(request, template_name='article/article_home.html'):
 
 def article_detail(request, article_id=None, template_name='article/article_detail.html'):
     article = atb.get_article_by_id(article_id=article_id)
-    if not article:
-        raise Http404
+    # if not article:
+    #     raise Http404
 
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
