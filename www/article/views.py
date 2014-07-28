@@ -9,7 +9,15 @@ from django.shortcuts import render_to_response
 from common import utils, page
 
 
-def home(request, template_name='404.html'):
+def home(request, template_name='article/article_home.html'):
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
+def article_detail(request, article_id=None, template_name='article/article_detail.html'):
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
+def article_list(request, article_id=None, template_name='article/article_list.html'):
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
