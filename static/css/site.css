@@ -17,6 +17,7 @@ body {
 .f18{font-size: 18px;}
 .f19{font-size: 19px;}
 .f20{font-size: 20px;}
+.f40{font-size: 40px;}
 
 .line-height-25{line-height: 25px;}
 .line-height-32{line-height: 32px;}
@@ -26,6 +27,9 @@ body {
 .co3{color: #fff;}
 .co4{color: #999;}
 .co5{color: #f36119;}
+
+.mr-0{margin-right: 0;}
+.ml-0{margin-left: 0;}
 
 .pt-0{padding-top: 0;}
 .pt-3{padding-top: 3px;}
@@ -41,13 +45,17 @@ body {
 .pl-5{padding-left: 5px;}
 .pl-10{padding-left: 10px;}
 .pl-15{padding-left: 15px;}
+.pl-20{padding-left: 20px;}
 .pl-35{padding-left: 35px;}
+.pl-40{padding-left: 40px;}
 .pl-50{padding-left: 50px;}
+.pl-70{padding-left: 70px;}
 .pr-0{padding-right: 0;}
 .pr-3{padding-right: 3px;}
 .pr-5{padding-right: 5px;}
 .pr-10{padding-right: 10px;}
 .pr-15{padding-right: 15px;}
+.pr-20{padding-right: 20px;}
 .pr-26{padding-right: 26px;}
 .pr-35{padding-right: 35px;}
 .pr-50{padding-right: 50px;}
@@ -72,6 +80,8 @@ body {
 .border-top-0{border-top: 0;}
 .border-bottom-0{border-bottom: 0;}
 .border-bottom{border-bottom: solid 1px;}
+.border-top{border-top: solid 1px;}
+.border-left{border-left: solid 1px;}
 .border-left-4{border-left: solid 4px;}
 
 .bdc-ebeced{border-color: #ebeced;}
