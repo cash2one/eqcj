@@ -11,6 +11,7 @@ def config(request):
     """
     @attention: Adds settings-related context variables to the context.
     """
+    import datetime
     from django.conf import settings
 
     return {
@@ -19,5 +20,6 @@ def config(request):
         'MEDIA_VERSION': '000',
         'SERVER_DOMAIN': settings.SERVER_DOMAIN,
         'MAIN_DOMAIN': settings.MAIN_DOMAIN,
-        'IMG0_DOMAIN': settings.IMG0_DOMAIN
+        'IMG0_DOMAIN': settings.IMG0_DOMAIN,
+        "YEAR": datetime.datetime.now().strftime("%Y"),
     }
