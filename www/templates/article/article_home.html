@@ -3,48 +3,19 @@
 {% block title %}首页{% endblock title %}
 {% block container %}
 <div class="row pt-20">
+	{% for article in articles_with_img %}
 	<div class="col-md-3 pb-20">
-		<a href="/article/1">
+		<a href="{{article.get_url}}">
 			<div class="w250 of-hidden bgc-fff">
-				<img class="article-image" src="http://cdn.pingwest.com/wp-content/uploads/2014/07/Baidu-Search-Brasil.jpg-300x0">
-				<div class="line-height-25 f15 bdc-ebeced border-bottom pt-10 pb-10 pl-5 pr-5">在阿里巴巴和腾讯分别依靠国际贸易和微信走出国门之后</div>
+				<img class="article-image" src="{{article.img}}">
+				<div class="line-height-25 f15 bdc-ebeced border-bottom pt-10 pb-10 pl-5 pr-5" style="min-height: 70px;">{{article.title}}</div>
 				<div class="f13 co2">
-					<span class="pull-left pt-10 pb-10 pl-5">张三丰</span>
-					<span class="pull-right pt-10 pb-10 pr-5">2013-05-06 15:23:52</span>
+					<span class="pull-right pt-10 pb-10 pr-5">{{article.create_time}}</span>
 				</div>
 			</div>
 		</a>
 	</div>
-	<div class="col-md-3 pb-20">
-		<div class="w250 of-hidden bgc-fff">
-			<img class="article-image" src="http://cdn.pingwest.com/wp-content/uploads/2014/07/free-wifi.jpg-300x0">
-			<div class="line-height-25 f15 bdc-ebeced border-bottom pt-10 pb-10 pl-5 pr-5">在阿里巴巴和腾讯分别依靠国际贸易和微信走出国门之后</div>
-			<div class="f13 co2">
-				<span class="pull-left pt-10 pb-10 pl-5">张三丰</span>
-				<span class="pull-right pt-10 pb-10 pr-5">2013-05-06 15:23:52</span>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 pb-20">
-		<div class="w250 of-hidden bgc-fff">
-			<img class="article-image" src="http://cdn.pingwest.com/wp-content/uploads/2014/07/6.jpg-300x0">
-			<div class="line-height-25 f15 bdc-ebeced border-bottom pt-10 pb-10 pl-5 pr-5">在阿里巴巴和腾讯分别依靠国际贸易和微信走出国门之后</div>
-			<div class="f13 co2">
-				<span class="pull-left pt-10 pb-10 pl-5">张三丰</span>
-				<span class="pull-right pt-10 pb-10 pr-5">2013-05-06 15:23:52</span>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 pb-20">
-		<div class="w250 of-hidden bgc-fff">
-			<img class="article-image" src="http://cdn.pingwest.com/wp-content/uploads/2014/07/yahoo_logo212.jpg-300x0">
-			<div class="line-height-25 f15 bdc-ebeced border-bottom pt-10 pb-10 pl-5 pr-5">在阿里巴巴和腾讯分别依靠国际贸易和微信走出国门之后</div>
-			<div class="f13 co2">
-				<span class="pull-left pt-10 pb-10 pl-5">张三丰</span>
-				<span class="pull-right pt-10 pb-10 pr-5">2013-05-06 15:23:52</span>
-			</div>
-		</div>
-	</div>
+	{% endfor %}
 </div>
 
 <ul class="col-md-6 list-group pr-26">

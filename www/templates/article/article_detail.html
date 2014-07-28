@@ -3,9 +3,9 @@
 {% block title %}{{article.title}}{% endblock title %}
 {% block container %}
 <ol class="breadcrumb f15" style="margin-bottom: 10px; margin-top: 10px; padding-left: 0;">
-	<li><a href="#">首页</a></li>
-	<li><a href="#">经济</a></li>
-	<li class="active">百度搜索“出海”巴西并非临时起意...</li>
+	<li><a href="/">首页</a></li>
+	<li><a href="/{{article.get_article_type.0}}">{{article.get_article_type.1}}</a></li>
+	<li class="active">{{article.title}}</li>
 </ol>
 <div class="col-md-8 pt-0 pl-0">
 	<div class="border-bottom bdc-eee bgc-fff pl-50 pr-50 pb-3 pt-15 line-height-32">
