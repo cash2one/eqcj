@@ -9,6 +9,7 @@ from django.conf import settings
 
 urlpatterns = patterns('',
                        url(r'^$', 'www.article.views.home'),
+                       url(r'^t(?P<article_type>\w+)$', 'www.article.views.article_list'),
                        url(r'^article/', include('www.article.urls')),
 
                        url(r'^500$', 'www.article.views.test500'),
