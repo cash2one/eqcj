@@ -23,7 +23,7 @@ SERVER_DOMAIN = 'eqcj.com' if not LOCAL_FLAG else 'a.com:8000'
 MAIN_DOMAIN = 'http://www.%s' % SERVER_DOMAIN
 IMG0_DOMAIN = 'http://img0.eqcj.com'    # 'http://zimg0.qiniudn.com'
 
-EMAIL_FROM = u'"智选" <service@eqcj.com>'
+EMAIL_FROM = u'"易钱财经" <service@eqcj.com>'
 EMAIL_HOST_USER = 'service@eqcj.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_HOST = 'smtp.exmail.qq.com'
@@ -50,7 +50,7 @@ DATABASES = {
 TIME_ZONE = 'Asia/Shanghai'
 LANGUAGE_CODE = 'zh-cn'
 DATE_FORMAT = 'Y-m-d'
-DATETIME_FORMAT = 'Y-m-d G:i:s'
+DATETIME_FORMAT = 'Y-m-d H:i:s'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True

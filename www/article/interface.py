@@ -46,6 +46,9 @@ class ArticleBase(object):
     def get_articles_with_img(self):
         return Article.objects.exclude(img=None)
 
+    def get_articles_by_article_type(self, article_type):
+        return Article.objects.filter(article_type=article_type)
+
     def add_article(self, title, content, from_url, img=None):
         if not (title and content):
             return 99800, dict_err.get(99800)

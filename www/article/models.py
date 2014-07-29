@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+import datetime
 
 
 class Article(models.Model):
@@ -13,10 +14,10 @@ class Article(models.Model):
     img = models.CharField(max_length=128, null=True)
     sort_num = models.IntegerField(default=0, db_index=True)
     state = models.BooleanField(default=True, db_index=True)
-    create_time = models.DateTimeField(auto_now_add=True)
+    create_time = models.DateTimeField(default=datetime.datetime.now)
 
     class Meta:
-        ordering = ["-sort_num", "-id"]
+        ordering = ["-sort_num", "-create_time"]
 
     def get_url(self):
         return '/article/%s' % self.id
@@ -24,6 +25,13 @@ class Article(models.Model):
     def get_article_type(self):
         from www.article.interface import ArticleBase
         return ArticleBase().get_article_type_by_id(self.article_type)
+
+    def get_summary(self):
+        """
+        @attention: 通过内容获取摘要
+        """
+        from common import utils
+        return utils.get_summary_from_html_by_sub(self.content).strip()
 
 
 class FriendlyLink(models.Model):

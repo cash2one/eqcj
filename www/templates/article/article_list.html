@@ -1,5 +1,6 @@
 {% extends "article/base_article.html" %}
-
+{% load custom_tags %}
+{% load custom_filters %}
 {% block title %}{{article_type.1}}{% endblock title %}
 
 {% block container %}
@@ -10,175 +11,19 @@
 <div class="col-md-8 pt-0 pl-0">
 <ul class="list-group pt-5 bgc-fff">
     
+    {% for article in articles %}
     <li class="list-group-item border-left-0 border-right-0 bdc-eee bgc-0 pl-0">
         <div class="border-left-4 pl-10 bdc-E67E22">
             <div class="">
-                <a class="f16 fb" href="/kaihu/article/70">广发证券融易通业务介绍</a>
-                <span class="f12 co2 pull-right">2014-07-26 15:22:32</span>
+                <a class="f16 fb" href="{{article.get_url}}">{{article.title|str_display:30}}</a>
+                <span class="f12 co2 pull-right">{{article.create_time|date:"Y-m-d H:i"}}</span>
             </div>
-            <div class="pt-10 f13 co2"> 	广发证券融易通--股票质押式回购融资网上申购新股业务   	一、什么是“融易通”？   	“融易通”股票质押式回购融资网上申购新股业务（以下简称“融易通”）是指符合条件的资金融入方（客户）以所持有......</div>
+            <div class="pt-10 f13 co2">{{article.get_summary|safe}}</div>
         </div>
     </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-eee bgc-0 pl-0">
-        <div class="border-left-4 pl-10 bdc-E67E22">
-            <div class="">
-                <a class="f16 fb" href="/kaihu/article/70">海通“快融宝”：借钱不容易，其实也“融”易</a>
-                <span class="f12 co2 pull-right">2014-07-26 15:22:32</span>
-            </div>
-            <div class="pt-10 f13 co2">计划购物却发现没钱了…… 临近月底，只有哭泣…… 银行催信用卡还款了…… 每个月总有那么几天，口袋空空却急需用钱。你找“快融宝”就对了！ ......</div>
-        </div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-eee bgc-0 pl-0">
-        <div class="border-left-4 pl-10 bdc-E67E22">
-            <div class="">
-                <a class="f16 fb" href="/kaihu/article/70">国信OTC金福1号集合资产管理计划二期（7月23日）</a>
-                <span class="f12 co2 pull-right">2014-07-26 15:22:32</span>
-            </div>
-            <div class="pt-10 f13 co2">国信OTC金福1号集合资产管理计划（第二期）将于2014年7月23日开放申购，本计划分为优先和次级两级，本期优先级份额投资期限为6个月，约定收益为7.0％（年化）。额度有限，先到先得！ ......</div>
-        </div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/61">国信OTC金福1号集合资产管理计划二期（7月23日）</a>
-            <span class="f12 co2 pull-right">2014-07-23</span>
-        </div>
-        <div class="pt-10"> 	国信OTC金福1号集合资产管理计划（第二期）将于2014年7月23日开放申购，本计划分为优先和次级两级，本期优先级份额投资期限为6个月，约定收益为7.0％（年化）。额度有限，先到先得！   	  ......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/59">海通“快融宝”：借钱不容易，其实也“融”易</a>
-            <span class="f12 co2 pull-right">2014-07-22</span>
-        </div>
-        <div class="pt-10"> 	计划购物却发现没钱了……   	    	临近月底，只有哭泣……   	    	银行催信用卡还款了……   	    	每个月总有那么几天，口袋空空却急需用钱。你找“快融宝”就对了！   	  ......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/43">集合竞价规则</a>
-            <span class="f12 co2 pull-right">2014-07-10</span>
-        </div>
-        <div class="pt-10"> 	上交所集合竞价规则   	   	集合竞价时，成交价格的确定原则为：   	（一）可实现最大成交量的价格；   	（二）高于该价格的买入申报与低于该价格的卖出申报全部成交的价格；   	（三）与该......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/42">股票XD、XR、DR是什么意思？</a>
-            <span class="f12 co2 pull-right">2014-07-10</span>
-        </div>
-        <div class="pt-10"> 	沪市的上市公司，在除权日会出现XD、XR或DR的字样，这分别代表了除息、除权和除息除权这三种情况：   	&nbsp; &nbsp;当股票名称前出现XD字样时，表示当日是这只股票的除息日。XD是英......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/20">中信证券天天利财产品介绍</a>
-            <span class="f12 co2 pull-right">2014-07-09</span>
-        </div>
-        <div class="pt-10"> 	1000元即可参与。   	灵活高效 收益一般高于同期银行等机构发行的产品，到期日资金可用，无在途！   	产品近期收益率如下（实际收益以当期产品公告为准）   	    	可提前赎回，或部分赎回......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/15">如何退出海通证券“现金赢家”？</a>
-            <span class="f12 co2 pull-right">2014-07-09</span>
-        </div>
-        <div class="pt-10"> 	一、如何退出现金赢家产品（两种方法）：   	1. 永久性退出：首先登录海通官网www.htsec.com ，点击左上方“资产管理”，进入后点击右上方“电子合同签署”，进入后输入资金账号和交易密码......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/14">如何购买海通证券“现金赢家”？</a>
-            <span class="f12 co2 pull-right">2014-07-09</span>
-        </div>
-        <div class="pt-10"> 	一、购买现金赢家产品的具体操作流程：   	1、登录海通官网www.htsec.com ，点击左上方“软件下载”，进入新界面后，在“普通软件下载”的界面，选择“海通大智慧5.997+5.0委托”交......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/8">国泰君安现金管家是什么？</a>
-            <span class="f12 co2 pull-right">2014-07-09</span>
-        </div>
-        <div class="pt-10"> 	现金管家是什么？   	现金管家其实是一个货币集合资产管理计划，是国泰君安推出的一款重量级现金理财产品呢！   	   	现金管家是怎么运作的呢？   	国泰君安的交易系统会在每天下午3点股市收盘......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/6">广发收益宝:保本型固定收益产品</a>
-            <span class="f12 co2 pull-right">2014-07-08</span>
-        </div>
-        <div class="pt-10">
-	
-
-
-	【OTC收益凭证一周报价】2014年7月8日至7月10日，保本型固定收益：7天4.7%、一月期（28天）5.0%、三月期（98天）5.3%，个别期限参考相近期限报价；起点5万元，递......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/5">海通理财产品最新信息</a>
-            <span class="f12 co2 pull-right">2014-07-08</span>
-        </div>
-        <div class="pt-10">
-	NO.1： &nbsp; 5.97% &nbsp; 月月赢
-
-
-	产品代码：851124
-
-
-	开放日：2014年7月7日
-
-
-	到期日：2015年6月8日
-
-
-	投资期......</div>
-    </li>
-    
-    <li class="list-group-item border-left-0 border-right-0 bdc-ddd bgc-0">
-        <div>
-            <a class="black-blue f16 fb" href="/kaihu/article/4">银河产品——尊享理财产品（收益率5.1%-5.5%）</a>
-            <span class="f12 co2 pull-right">2014-07-08</span>
-        </div>
-        <div class="pt-10">
-	珠联璧合财富（1403期9）
-
-
-	产品期限：35天、100天、189天
-
-
-	预期收益率：5.1%、 5.3%、 5.5%（年化）
-
-
-	产品规模：5000万、1亿、2亿
-......</div>
-    </li>
-    
+    {% endfor %}
 </ul>
-</div>
-
-
-
-<div class="col-md-4 pt-0">
-    <ul class="list-group">
-        <li class="list-group-item border-left-0 border-right-0 bdc-eee bgc-f36119 co3 f15">
-            <span>易钱快讯</span>
-        </li>
-        <li class="list-group-item border-left-0 border-right-0 bdc-eee">
-            <div><a class="f18" href="#">“莆田系医院”进行曲</a><span class="co2 f12 pull-right">2014-07-25</span></div>
-            <div class="pt-10 co2">7月16日下午，新东方教育集团有限公司董事长俞敏洪在其微博发布信息中称，云南新东方一名女员工在云南玛莉亚医院分娩时死亡，并质疑该医院..</div>
-        </li>
-        <li class="list-group-item border-left-0 border-right-0 bdc-eee">
-            <div><a class="f18" href="#">“莆田系医院”进行曲</a><span class="co2 f12 pull-right">2014-07-25</span></div>
-            <div class="pt-10 co2">7月16日下午，新东方教育集团有限公司董事长俞敏洪在其微博发布信息中称，云南新东方一名女员工在云南玛莉亚医院分娩时死亡，并质疑该医院..</div>
-        </li>
-        <li class="list-group-item border-left-0 border-right-0 bdc-eee">
-            <div><a class="f18" href="#">“莆田系医院”进行曲</a><span class="co2 f12 pull-right">2014-07-25</span></div>
-            <div class="pt-10 co2">7月16日下午，新东方教育集团有限公司董事长俞敏洪在其微博发布信息中称，云南新东方一名女员工在云南玛莉亚医院分娩时死亡，并质疑该医院..</div>
-        </li>
-    </ul>
+{{page_params|paging:request}}
 </div>
 
 {% endblock container %}
