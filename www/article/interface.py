@@ -36,6 +36,19 @@ class ArticleBase(object):
         except Article.DoesNotExist:
             return None
 
+    def get_next_article(self, article):
+        articles = Article.objects.filter(create_time__lt=article.create_time, article_type=article.article_type)
+        if articles:
+            return articles[0]
+
+    def get_pre_article(self, article):
+        articles = Article.objects.filter(create_time__gt=article.create_time, article_type=article.article_type)
+        if articles:
+            return articles[0]
+
+    def get_related_articles(self, article):
+        return Article.objects.filter(create_time__lt=article.create_time, article_type=article.article_type)[:3]
+
     def get_all_articles(self, state=True):
         objs = Article.objects.all()
         if state is not None:

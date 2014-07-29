@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import urllib
-from django.contrib import auth
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+# from django.contrib import auth
+from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-from common import utils, page
+from common import page
 from www.misc import consts
 from www.article import interface
 
@@ -29,6 +28,10 @@ def article_detail(request, article_id=None, template_name='article/article_deta
     article = atb.get_article_by_id(article_id=article_id)
     if not article:
         raise Http404
+
+    article_next = atb.get_next_article(article)
+    article_pre = atb.get_pre_article(article)
+    articles_related = atb.get_related_articles(article)
 
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
