@@ -102,6 +102,10 @@ body {
 	padding-right: 35px;
 }
 
+.eq-nav>li.active>a{
+	background-color: #eee;
+}
+
 .article-image{
 	-webkit-transition: margin 0.1s ease;
 	-moz-transition: margin 0.1s ease;
