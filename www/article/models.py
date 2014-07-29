@@ -21,6 +21,10 @@ class Article(models.Model):
     def get_url(self):
         return '/article/%s' % self.id
 
+    def get_article_type(self):
+        from www.article.interface import ArticleBase
+        return ArticleBase().get_article_type_by_id(self.article_type)
+
 
 class FriendlyLink(models.Model):
     link_type_choices = ((0, u'首页链接'), (1, u'内页链接'))

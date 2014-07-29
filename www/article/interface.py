@@ -21,6 +21,12 @@ class ArticleBase(object):
             if article_type[0] == key:
                 return article_type
 
+    def get_article_type_by_id(self, article_type_id):
+        article_type_list = consts.ARTICLE_TYPE_LIST
+        for article_type in article_type_list:
+            if article_type[2] == article_type_id:
+                return article_type
+
     def get_article_by_id(self, article_id, state=None):
         try:
             ps = dict(id=article_id)
@@ -37,8 +43,8 @@ class ArticleBase(object):
 
         return objs
 
-    def get_article_by_title(self, title):
-        return self.get_all_articles(state=None).filter(title__contains=title)
+    def get_articles_with_img(self):
+        return Article.objects.exclude(img=None)
 
     def add_article(self, title, content, from_url, img=None):
         if not (title and content):

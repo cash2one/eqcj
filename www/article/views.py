@@ -13,6 +13,8 @@ atb = interface.ArticleBase()
 
 
 def home(request, template_name='article/article_home.html'):
+    articles_with_img = atb.get_articles_with_img()[:8]
+
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
