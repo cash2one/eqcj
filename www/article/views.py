@@ -21,6 +21,8 @@ def home(request, template_name='article/article_home.html'):
         articles = atb.get_articles_by_article_type(at[2])[:5]
         article_type_list[at[2]].append(articles)
 
+    links = interface.FriendlyLinkBase().get_all_links()
+
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 

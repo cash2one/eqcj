@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/*
+Disallow: /500
+Disallow: /search
+Disallow: /logout

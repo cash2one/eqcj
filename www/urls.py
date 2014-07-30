@@ -14,6 +14,8 @@ urlpatterns = patterns('',
                        url(r'^article/', include('www.article.urls')),
 
                        url(r'^500$', 'www.article.views.test500'),
+                       url(r'^(?P<txt_file_name>\w+)\.txt$', 'www.misc.views.txt_view'),
+
                        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': False}),
                        url(r'^admin/', include(admin.site.urls)),
                        )

@@ -4,7 +4,7 @@
 
 # from common import cache, debug, utils
 from www.misc import consts
-from www.article.models import Article
+from www.article.models import Article, FriendlyLink
 
 
 dict_err = {
@@ -69,3 +69,12 @@ class ArticleBase(object):
         article = Article.objects.create(title=title, content=content, from_url=from_url, img=img)
 
         return 0, article
+
+
+class FriendlyLinkBase(object):
+
+    def __init__(self):
+        pass
+
+    def get_all_links(self):
+        return FriendlyLink.objects.all()
