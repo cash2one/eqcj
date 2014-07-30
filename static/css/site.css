@@ -17,6 +17,7 @@ body {
 .f18{font-size: 18px;}
 .f19{font-size: 19px;}
 .f20{font-size: 20px;}
+.f30{font-size: 30px;}
 .f40{font-size: 40px;}
 
 .line-height-25{line-height: 25px;}
@@ -27,6 +28,8 @@ body {
 .co3{color: #fff;}
 .co4{color: #999;}
 .co5{color: #f36119;}
+.co6{color: #9FA3A7;}
+.co7{color: #666666;}
 
 .mr-0{margin-right: 0;}
 .ml-0{margin-left: 0;}
@@ -69,6 +72,7 @@ body {
 .bgc-fff{background-color: #fff;}
 .bgc-333{background-color: #333;}
 .bgc-f36119{background-color: #f36119;}
+.bgc-272829{background-color: #272829;}
 
 .w200{width: 200px;}
 .w215{width: 215px;}

@@ -20,7 +20,11 @@
 </div>
 
 {% for at in article_type_list %}
+{% if forloop.counter|divisibleby:2 %}
+<ul class="col-md-6 list-group pr-26 pl-15">
+{% else %}
 <ul class="col-md-6 list-group pr-26">
+{% endif %}
 	<li class="list-group-item border-left-0 border-right-0 bdc-eee bgc-f36119 co3 f15">
 		<span>{{at.1}}</span>
 		<span class="pull-right f13"><a href="/{{at.0}}" class="white-white">更多 »</a></span>

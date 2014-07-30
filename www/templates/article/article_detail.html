@@ -20,18 +20,19 @@
 	</div>
 	<div class="pt-20 bgc-fff f18 pl-50 pr-50 pb-30 line-height-32">{{article.content|safe}}</div>
 	<div class="bgc-fff border-top bdc-eee row ml-0 mr-0">
-		{% if article_pre %}
 		<div class="col-md-6 pt-20 pb-20 pl-50 pr">
+			{% if article_pre %}
 			<a href="{{article_pre.get_url}}">
-				<span class="pa fa fa-angle-left f40 co2" style="left:15px;"></span>
+				<span class="pa fa fa-angle-left f30 co2" style="left:20px; top: 15px;"></span>
 				<span class="f16 fb">{{article_pre.title}}</span>
 			</a>
+			{% endif %}
 		</div>
-		{% endif %}
+
 		{% if article_next %}
-		<div class="col-md-6 pt-20 pb-20 pr-50 pr border-left bdc-eee">
+		<div class="col-md-6 pt-20 pb-20 pr-50 pr border-left bdc-eee text-right">
 			<a href="{{article_next.get_url}}">
-				<span class="pa fa fa-angle-right f40 co2" style="right:15px;"></span>
+				<span class="pa fa fa-angle-right f30 co2" style="right:20px; top: 15px;"></span>
 				<span class="f16 fb">{{article_next.title}}</span>
 			</a>
 		</div>
