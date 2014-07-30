@@ -57,7 +57,7 @@ USE_L10N = True
 MEDIA_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../static'))
 MEDIA_URL = '/static/' if LOCAL_FLAG else ('http://static.%s/' % SERVER_DOMAIN)
 STATIC_ROOT = ''
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' if LOCAL_FLAG else ('http://static.%s/' % SERVER_DOMAIN)
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATICFILES_DIRS = (
