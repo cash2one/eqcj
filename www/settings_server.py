@@ -21,10 +21,10 @@ sys.path.extend([os.path.abspath(os.path.join(SITE_ROOT, '../'))])
 SERVER_NAME = 'EQCJ_WEB0' if not LOCAL_FLAG else 'DEVELOPER'
 SERVER_DOMAIN = 'eqcj.com' if not LOCAL_FLAG else 'a.com:8000'
 MAIN_DOMAIN = 'http://www.%s' % SERVER_DOMAIN
-IMG0_DOMAIN = 'http://img0.eqcj.com'    # 'http://zimg0.qiniudn.com'
+IMG0_DOMAIN = 'http://img0.eqcj.com'
 
-EMAIL_FROM = u'"易钱财经" <service@eqcj.com>'
-EMAIL_HOST_USER = 'service@eqcj.com'
+EMAIL_FROM = u'"易钱财经" <eqcj@zhixuan.com>'
+EMAIL_HOST_USER = 'eqcj@zhixuan.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_HOST = 'smtp.exmail.qq.com'
 EMAIL_PORT = '25'
@@ -70,11 +70,14 @@ STATICFILES_FINDERS = (
 SECRET_KEY = 'ud-9^7=s3eot_id*ltpnklid3tfr*w@z5x#1y0^hn6enfr+@i4'
 
 if not LOCAL_FLAG:
-    TEMPLATE_LOADERS = (('django.template.loaders.cached.Loader', ('django.template.loaders.filesystem.Loader',)),)
+    TEMPLATE_LOADERS = (('django.template.loaders.cached.Loader',
+                       ('django.template.loaders.filesystem.Loader',)), 'django.template.loaders.app_directories.Loader',)
 else:
-    TEMPLATE_LOADERS = (('django.template.loaders.filesystem.Loader',),)
+    TEMPLATE_LOADERS = (('django.template.loaders.filesystem.Loader',), 'django.template.loaders.app_directories.Loader',)
+
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
     # "django.core.context_processors.debug",
     # "django.core.context_processors.i18n",
     "django.core.context_processors.media",
@@ -99,15 +102,13 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    # 'django.contrib.auth',
-    # 'django.contrib.sessions',
-    # 'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.admin',
     'www.custom_tags',
     'www.article',
 )
-
-# AUTHENTICATION_BACKENDS = ('www.middleware.user_backend.AuthBackend',)
-# SESSION_ENGINE = 'common.session'
 
 LOGGING = {
     'version': 1,

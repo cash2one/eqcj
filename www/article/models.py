@@ -5,7 +5,6 @@ import datetime
 
 
 class Article(models.Model):
-    # article_type_choices = ((0, u"国内财经"), (0, u"国际财经"), (0, u"公司要闻"), (0, u"证券要闻"))
     title = models.CharField(max_length=128)
     content = models.TextField()
 
@@ -44,6 +43,7 @@ class FriendlyLink(models.Model):
     link_type = models.IntegerField(default=0, choices=link_type_choices)
     sort_num = models.IntegerField(default=0, db_index=True)
     state = models.BooleanField(default=True, db_index=True)
+    create_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = [("name", 'link_type'), ]

@@ -33,5 +33,4 @@ class UserMiddware(object):
         title = u'%s error in %s' % (settings.SERVER_NAME, request.get_full_path())
         content = debug.get_debug_detail(exception)
         if settings.SERVER_NAME != 'DEVELOPER':
-            from www.tasks import async_send_email
-            async_send_email(settings.NOTIFICATION_EMAIL, title, content)
+            utils.send_email(settings.NOTIFICATION_EMAIL, title, content)

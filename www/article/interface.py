@@ -42,7 +42,7 @@ class ArticleBase(object):
             return articles[0]
 
     def get_pre_article(self, article):
-        articles = Article.objects.filter(create_time__gt=article.create_time, article_type=article.article_type)
+        articles = Article.objects.filter(create_time__gt=article.create_time, article_type=article.article_type).order_by("create_time")
         if articles:
             return articles[0]
 
