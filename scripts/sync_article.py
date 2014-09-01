@@ -37,7 +37,7 @@ def sync_article_head_1():
     """
     start_time = time.time()
     url = "http://www.weiyangx.com/"
-    resp = requests.get(url, headers=headers)
+    resp = requests.get(url, headers=headers, timeout=30)
     text = resp.text
 
     jq = pq(text)
@@ -47,7 +47,7 @@ def sync_article_head_1():
     for img in imgs:
         img_src = pq(img).attr("src")
         href = pq(img).next().attr("href")
-        article = pq(requests.get(href, headers=headers).text)
+        article = pq(requests.get(href, headers=headers, timeout=30).text)
         title = article("header:eq(1) h4 a").html().strip()
         content = article("#dslc-content").html()
         create_time = now - datetime.timedelta(seconds=random.randint(0, 3600 * 3))
@@ -71,7 +71,7 @@ def sync_article_head_2():
     main_url = "http://www.xinews.com.cn"
     start_time = time.time()
     url = main_url + "/action/home/"
-    resp = requests.get(url, headers=headers)
+    resp = requests.get(url, headers=headers, timeout=30)
     text = resp.text
 
     jq = pq(text)
@@ -82,7 +82,7 @@ def sync_article_head_2():
         img_src = main_url + pq(img).attr("src")
         href = main_url + pq(img).parent().attr("href")
 
-        article = pq(requests.get(href, headers=headers).text)
+        article = pq(requests.get(href, headers=headers, timeout=30).text)
         title = article(".artiTle h2").html().strip()
         content = article("#frameContent").html()
         create_time = now - datetime.timedelta(seconds=random.randint(0, 3600 * 3))
@@ -156,7 +156,7 @@ def sync_article_body_1():
     start_time = time.time()
     for i in range(1, 10):
         url = main_url + "/columns/48/page/%s" % i
-        resp = requests.get(url, headers=headers)
+        resp = requests.get(url, headers=headers, timeout=30)
         text = resp.text
 
         jq = pq(text)
@@ -165,7 +165,7 @@ def sync_article_body_1():
 
         for ahref in ahrefs:
             href = pq(ahref).attr("href")
-            resp = requests.get(href, headers=headers)
+            resp = requests.get(href, headers=headers, timeout=30)
             if resp.status_code != 200:
                 continue
             resp.encoding = "utf8"
@@ -204,7 +204,7 @@ def sync_article_body_2():
     start_time = time.time()
     for i in range(1, 10):
         url = main_url + "/cmppdyn/26/33/%s/stocklistpage.html" % i
-        resp = requests.get(url, headers=headers)
+        resp = requests.get(url, headers=headers, timeout=30)
         text = resp.text
 
         jq = pq(text)
@@ -213,7 +213,7 @@ def sync_article_body_2():
 
         for ahref in ahrefs:
             href = pq(ahref).attr("href")
-            resp = requests.get(href, headers=headers)
+            resp = requests.get(href, headers=headers, timeout=30)
             if resp.status_code != 200:
                 continue
             resp.encoding = "utf8"
@@ -253,7 +253,7 @@ def sync_article_body_3():
     start_time = time.time()
     for i in range(1, 10):
         url = main_url + "/list-3-1.html?p=%s" % i
-        resp = requests.get(url, headers=headers)
+        resp = requests.get(url, headers=headers, timeout=30)
         text = resp.text
 
         jq = pq(text)
@@ -264,7 +264,7 @@ def sync_article_body_3():
             href = main_url + pq(ahref).attr("href")
             if "?p=1" in href:
                 continue
-            resp = requests.get(href, headers=headers)
+            resp = requests.get(href, headers=headers, timeout=30)
             if resp.status_code != 200:
                 continue
             resp.encoding = "utf8"
