@@ -4,3 +4,6 @@ Disallow: /admin/*
 Disallow: /500
 Disallow: /search
 Disallow: /logout
+
+User-agent: BLEXBot
+Disallow: /
