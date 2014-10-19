@@ -55,3 +55,6 @@ def article_list(request, article_type=None, page_num=1, template_name='article/
 
 def test500(request):
     raise Exception, u'test500 for send error email'
+    
+def about(request):
+    return render_to_response("about.html", locals(), context_instance=RequestContext(request))
