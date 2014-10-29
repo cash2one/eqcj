@@ -27,7 +27,7 @@ class ArticleBase(object):
             if article_type[2] == article_type_id:
                 return article_type
 
-    def get_article_by_id(self, article_id, state=None):
+    def get_article_by_id(self, article_id, state=True):
         try:
             ps = dict(id=article_id)
             if state is not None:
