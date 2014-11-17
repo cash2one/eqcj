@@ -37,14 +37,16 @@ class ArticleBase(object):
             return None
 
     def get_next_article(self, article):
-        articles = Article.objects.filter(create_time__lt=article.create_time, article_type=article.article_type)
-        if articles:
-            return articles[0]
+        try:
+            return Article.objects.filter(create_time__lt=article.create_time, article_type=article.article_type)[0]
+        except:
+            pass
 
     def get_pre_article(self, article):
-        articles = Article.objects.filter(create_time__gt=article.create_time, article_type=article.article_type).order_by("create_time")
-        if articles:
-            return articles[0]
+        try:
+            return Article.objects.filter(create_time__gt=article.create_time, article_type=article.article_type).order_by("create_time")[0]
+        except:
+            pass
 
     def get_related_articles(self, article):
         return Article.objects.filter(create_time__lt=article.create_time, article_type=article.article_type)[:3]
