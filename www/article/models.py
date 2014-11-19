@@ -13,7 +13,7 @@ class Article(models.Model):
     img = models.CharField(max_length=128, null=True, blank=True)
     sort_num = models.IntegerField(default=0, db_index=True)
     state = models.BooleanField(default=True, db_index=True)
-    create_time = models.DateTimeField(default=datetime.datetime.now)
+    create_time = models.DateTimeField(default=datetime.datetime.now, db_index=True)
 
     class Meta:
         ordering = ["-sort_num", "-create_time"]
