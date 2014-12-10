@@ -203,7 +203,8 @@ def sync_article_body_2():
     main_url = "http://finance.ifeng.com"
     start_time = time.time()
     for i in range(1, 10):
-        url = main_url + "/cmppdyn/26/33/%s/stocklistpage.html" % i
+        url = main_url + "/cmppdyn/26/33/%s/dynlist.html" % i
+
         resp = requests.get(url, headers=headers, timeout=30)
         text = resp.text
 
@@ -297,12 +298,12 @@ def sync_article_head():
 
 
 def sync_article_body():
-    sync_article_body_0()
-    sync_article_body_1()
+    # sync_article_body_0()
+    # sync_article_body_1()
     sync_article_body_2()
-    sync_article_body_3()
+    # sync_article_body_3()
 
 
 if __name__ == '__main__':
-    sync_article_head()
+    # sync_article_head()
     sync_article_body()
