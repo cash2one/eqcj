@@ -298,12 +298,12 @@ def sync_article_head():
 
 
 def sync_article_body():
-    # sync_article_body_0()
-    # sync_article_body_1()
+    sync_article_body_0()
+    sync_article_body_1()
     sync_article_body_2()
-    # sync_article_body_3()
+    sync_article_body_3()
 
 
 if __name__ == '__main__':
-    # sync_article_head()
+    sync_article_head()
     sync_article_body()
