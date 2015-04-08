@@ -46,10 +46,10 @@ def sync_article_head_1():
     now = datetime.datetime.now()
     for img in imgs:
         img_src = pq(img).attr("src")
-        href = pq(img).next().attr("href")
+        href = pq(img).parent().parent().attr("href")
         article = pq(requests.get(href, headers=headers, timeout=30).text)
         title = article("header:eq(1) h4 a").html().strip()
-        content = article("#dslc-content").html()
+        content = article(".elements-box").children().eq(0).html()
         create_time = now - datetime.timedelta(seconds=random.randint(0, 3600 * 3))
         try:
             Article.objects.create(title=title, content=content, from_url=href, img=img_src, article_type=0, create_time=create_time)
@@ -307,3 +307,5 @@ def sync_article_body():
 if __name__ == '__main__':
     sync_article_head()
     sync_article_body()
+
+    
